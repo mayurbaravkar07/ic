@@ -1,0 +1,44 @@
+// C++ code
+//
+void setup()
+{
+  pinMode(12, OUTPUT);
+  pinMode(3, INPUT);
+   pinMode(11, OUTPUT);
+  pinMode(4, INPUT);
+   pinMode(10, OUTPUT);
+  pinMode(2, INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  bool led1;
+  bool led2;
+  bool led3;
+  led1 = digitalRead(3);
+  if(led1 == HIGH )
+  { digitalWrite(12,HIGH );
+  }
+  else
+  {
+    digitalWrite(12,LOW );
+  }
+  led2 = digitalRead(4);
+  if(led2 == HIGH )
+  { digitalWrite(11,HIGH );
+  }
+  else
+  {
+    digitalWrite(11,LOW );
+  }
+  led3 = digitalRead(5);
+  if(led3 == HIGH )
+  { digitalWrite(10,HIGH );
+  }
+  else
+  {
+    digitalWrite(10,LOW );
+  }
+  
+}

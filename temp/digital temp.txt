@@ -1,0 +1,47 @@
+
+// include the library code:
+#include <LiquidCrystal.h>
+
+// initialize the library with the numbers of the interface pins
+LiquidCrystal lcd(8,7,6, 5, 4, 3);
+
+void setup() {
+  pinMode(A0,INPUT);
+  Serial.begin(9600);
+ // pinMode(1,OUTPUT);
+  // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2);
+  // Print a message to the LCD.
+  \
+}
+
+void loop() {
+  // set the cursor to column 0, line 1
+  float temp;
+  lcd.print("Temperature is :");
+  while(100)
+  {
+    
+  int X;
+  float temperature = analogRead(A0);
+  X =((temperature*500)/1024);
+  temp = (X-0.5-48.5);
+  
+  
+  float farr = (temp*9/5)+32;
+  	 lcd.setCursor(1, 2);
+  	// lcd.print("celsius-");
+	 lcd.print(temp);
+   // lcd.print(a);
+     lcd.print("C");
+     lcd.print(" | ");
+	 delay(500);
+	// lcd.setCursor(1, 3);
+   // lcd.println("farren-");
+ 	lcd.print(farr);
+    lcd.print("F");
+  
+
+}
+}
+ 

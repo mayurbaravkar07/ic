@@ -1,0 +1,117 @@
+void setup()
+{
+ 
+  Serial.begin(9600);
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(10, OUTPUT);
+  Serial.println("Press 'g' for illuminating green light, \nPress 'y' for illuminating yellow light, \nPress 'r' for illuminating red .");
+  Serial.println("Enter your choice:-");
+  
+  
+}
+
+void loop()
+{
+  while(Serial.available()!=0)
+  {
+    
+    char ch=Serial.read(); //Serialread read one character returns it as a byte
+    Serial.println(ch);
+    
+    switch(ch)
+    {
+      //if(ch=="g")
+      case 'g':
+      {
+        digitalWrite(10,HIGH);
+        digitalWrite(11,LOW);
+        digitalWrite(12,LOW);
+
+        Serial.println("\nPress 'g' for illuminating green light, \nPress 'y' for illuminating yellow light, \nPress 'r' for illuminating red .");
+        Serial.println("Enter your choice:-");
+        break;
+      } 
+      
+      case 'G':
+      {
+        digitalWrite(10,HIGH);
+        digitalWrite(11,LOW);
+        digitalWrite(12,LOW);
+
+        Serial.println("\nPress 'g' for illuminating green light, \nPress 'y' for illuminating yellow light, \nPress 'r' for illuminating red .");
+        Serial.println("Enter your choice:-");
+        break;
+      } 
+
+        //else if(ch=="y")
+        case 'y':
+        {
+          digitalWrite(10,LOW);
+          digitalWrite(11,HIGH);
+          digitalWrite(12,LOW);
+          Serial.println("\nPress 'g' for illuminating green light, \nPress 'y' for illuminating yellow light, \nPress 'r' for illuminating red .");
+          Serial.println("Enter your choice:-");
+          break;
+        }
+      
+      case 'Y':
+        {
+          digitalWrite(10,LOW);
+          digitalWrite(11,HIGH);
+          digitalWrite(12,LOW);
+          Serial.println("\nPress 'g' for illuminating green light, \nPress 'y' for illuminating yellow light, \nPress 'r' for illuminating red .");
+          Serial.println("Enter your choice:-");
+          break;
+        }
+      //else if(ch=="r")
+      case 'r':
+      {
+        digitalWrite(10,LOW);
+        digitalWrite(11,LOW);
+        digitalWrite(12,HIGH);
+        Serial.println("\nPress 'g' for illuminating green light, \nPress 'y' for illuminating yellow light, \nPress 'r' for illuminating red .");
+        Serial.println("Enter your choice:-");
+        break;
+      }
+      
+      case 'R':
+      {
+        digitalWrite(10,LOW);
+        digitalWrite(11,LOW);
+        digitalWrite(12,HIGH);
+        Serial.println("\nPress 'g' for illuminating green light, \nPress 'y' for illuminating yellow light, \nPress 'r' for illuminating red .");
+        Serial.println("Enter your choice:-");
+        break;
+      }
+
+      case 'b':
+      {
+        for(int i=0;i<5;i++){
+         digitalWrite(12,LOW);
+        digitalWrite(11,LOW);
+         digitalWrite(10,HIGH);
+        delay(500);
+        digitalWrite(10,LOW);  
+        delay(500);
+        
+         
+          }
+      }
+         case 'B':
+      {
+        for(int i=0;i<5;i++){
+         digitalWrite(12,LOW);
+        digitalWrite(11,LOW);
+        digitalWrite(10,HIGH);
+        delay(500);
+        digitalWrite(10,LOW);  
+        delay(500);
+          }
+        
+        
+        }
+      
+ }
+  }
+}

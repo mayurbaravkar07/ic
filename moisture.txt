@@ -1,0 +1,32 @@
+// C++ code
+//
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(9, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(A0, INPUT);
+}
+
+void loop()
+{
+  int moistureValue=analogRead(A0);
+  
+  if(moistureValue<=50){
+  Serial.println("Soil moisture");
+  Serial.println(moistureValue);  
+  digitalWrite(9,HIGH);
+    tone(12,450,100);
+  digitalWrite(11,HIGH);
+     digitalWrite(4,LOW); 
+  
+  }else{
+      Serial.println("Soil moisture");
+  Serial.println(moistureValue);  
+  digitalWrite(9,LOW);
+  digitalWrite(11,LOW);
+  digitalWrite(4,HIGH); 
+  
+  }
+}

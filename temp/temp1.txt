@@ -1,0 +1,79 @@
+// C++ code
+//
+
+void setup()
+{
+  pinMode(A1,INPUT);
+  Serial.begin(9600);
+  pinMode(7,OUTPUT);
+  pinMode(8, OUTPUT);
+  
+}
+
+void loop()
+{ float temp;
+  while(100)
+  {
+    
+  int X;
+  float temperature = analogRead(A1);
+  X =((temperature*500)/1024);
+  temp = (X-0.5-48.5);
+  
+  
+  float farr = (temp*9/5)+32;
+
+  
+  int ch;
+  Serial.println("Press 1 to show temperature in Celsicus :");
+  Serial.println("Press 2 to show temperature in Farrenheit :");
+  Serial.println("Enter your Choice :");
+    
+  delay(3000);
+    ch=Serial.parseInt();
+  switch(ch)
+    {
+      case 1:
+        Serial.println("Temperature in celsius is :-");
+        Serial.println(temp);
+        delay(1000);
+    		if(temp <= 100 && temp >= 0)
+            {
+              digitalWrite(8 , HIGH);
+              delay(500);
+              digitalWrite(8,LOW);
+            }
+    		else
+            {
+             digitalWrite(7, HIGH);
+              delay(500);
+              digitalWrite(7, LOW);
+            }
+    
+        break;
+      case 2:
+         Serial.println("temperatue in FARRENHIT IS :-");
+         Serial.println(farr);
+    if(farr <= 100 && farr >= 0)
+            {
+              digitalWrite(8 , HIGH);
+              delay(500);
+              digitalWrite(8,LOW);
+            }
+    		else
+            {
+             digitalWrite(7, HIGH);
+              delay(500);
+              digitalWrite(7, LOW);
+            }
+    
+    
+         delay(1000);
+         break;
+     
+        
+    }
+  
+  }
+  
+}
